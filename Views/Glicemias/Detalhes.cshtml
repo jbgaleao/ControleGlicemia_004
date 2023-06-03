@@ -1,0 +1,66 @@
+﻿@model ControleGlicemia_002.ViewModel.GlicemiaViewModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlicemiaMedida)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.GlicemiaMedida)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataMedicao)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.DataMedicao) - @Html.DisplayFor(model => model.HoraMedicao)
+        </dd>
+      @*  <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HoraMedicao)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.HoraMedicao)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataAplicacao)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.DataAplicacao) - @Html.DisplayFor(model => model.HoraAplicacao)
+        </dd>
+   @*     <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HoraAplicacao)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.HoraAplicacao)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DoseRegular)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.DoseRegular)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DoseAjuste)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.DoseAjuste)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+        <dd class="col-sm-10 fst-italic">
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+    </dl>
+</div>
+<hr />
+<div>
+    <a class="btn btn-success btn-sm" asp-action="Editar" asp-route-id="@Model?.GlicemiaID">Editar</a>
+    <a class="btn btn-secondary btn-sm" asp-action="Index">Voltar...</a>
+</div>

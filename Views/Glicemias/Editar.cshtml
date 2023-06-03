@@ -1,0 +1,129 @@
+﻿@model ControleGlicemia_002.ViewModel.GlicemiaViewModel
+@{
+    ViewData["Title"] = "Editar Glicemia";
+}
+
+<h3 class="jumbotron">Editando Registro de Glicemia</h3>
+<hr />
+<div class="row">
+    <div class="col-md">
+        <form asp-action="Editar">
+
+            @if (!string.IsNullOrEmpty(ViewBag.MessageFormularioOk))
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@ViewBag.MessageFormularioOk</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(ViewBag.MessageFormularioErro))
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>@ViewBag.MessageFormularioErro</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" asp-action="Index"></button>
+                </div>
+            }
+
+            <div class="card">
+                <div class="card-header fs-4 fst-italic">Glicemia</div>
+                <div class="card-body row">
+                    <div class="col-md-2">
+                        <div class="form-group p-1">
+                            <label asp-for="GlicemiaMedida" class="control-label col-form-label-sm fw-bold"></label>
+                            <input asp-for="GlicemiaMedida" class="form-control form-control-sm" type="number" min="40" max="500" />
+                            <span asp-validation-for="GlicemiaMedida" style="font-size:smaller" class="text-danger fst-italic"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card">
+                <div class="card-header fs-4 fst-italic">Horários</div>
+                <div class="card-body row">
+                    <div class="col-md-2">
+                        <div class="form-group p-1">
+                            <label asp-for="DataMedicao" class="control-label col-form-label-sm fw-bold"></label>
+                            <input asp-for="DataMedicao" class="form-control form-control-sm" />
+                            <span asp-validation-for="DataMedicao" style="font-size:smaller" class="text-danger fst-italic"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group p-1">
+                            <label asp-for="HoraMedicao" class="control-label col-form-label-sm fw-bold"></label>
+                            <input asp-for="HoraMedicao" class="form-control form-control-sm" />
+                            <span asp-validation-for="HoraMedicao" style="font-size:smaller" class="text-danger fst-italic"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4"></div>
+
+                    <div class="col-md-2">
+                        <div class="form-group p-1">
+                            <label asp-for="DataAplicacao" class="control-label col-form-label-sm fw-bold"></label>
+                            <input asp-for="DataAplicacao" class="form-control form-control-sm" />
+                            <span asp-validation-for="DataAplicacao" style="font-size:smaller" class="text-danger fst-italic"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group p-1">
+                            <label asp-for="HoraAplicacao" class="control-label col-form-label-sm fw-bold"></label>
+                            <input asp-for="HoraAplicacao" class="form-control form-control-sm" />
+                            <span asp-validation-for="HoraAplicacao" style="font-size:smaller" class="text-danger fst-italic"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card">
+                <div class="card-header fs-4 fst-italic">Aplicações de Insulina</div>
+                <div class="card-body row">
+                    <div class="col-md-2">
+                        <div class="form-group p-1">
+                            <label asp-for="DoseRegular" class="control-label col-form-label-sm fw-bold"></label>
+                            <input asp-for="DoseRegular" class="form-control form-control-sm" type="number" min="20" max="46" />
+                            <span asp-validation-for="DoseRegular" style="font-size:smaller" class="text-danger fst-italic"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group p-1">
+                            <label asp-for="DoseAjuste" class="control-label col-form-label-sm fw-bold"></label>
+                            <input asp-for="DoseAjuste" class="form-control form-control-sm" type="number" min="2" max="18" />
+                            <span asp-validation-for="DoseAjuste" style="font-size:smaller" class="text-danger fst-italic"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card">
+                <div class="card-header fs-4 fst-italic">Observações</div>
+                <div class="card-body">
+                    <div class="form-group p-1">
+                        <input asp-for="Observacao" class="form-control form-control-sm" type="text" style="height: 100px" />
+                        <span asp-validation-for="Observacao" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            
+            <div class="form-group p-1">
+                <input type="hidden" asp-for="GlicemiaID" />
+                <input type="submit" value="Salvar" class="btn btn-success btn-sm" />
+                <a class="btn btn-secondary btn-sm" asp-action="Index">Voltar...</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+    </script>
+                        }

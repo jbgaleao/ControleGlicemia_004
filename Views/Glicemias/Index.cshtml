@@ -1,0 +1,112 @@
+﻿@model IEnumerable<ControleGlicemia_002.ViewModel.GlicemiaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 class="jumbotron">Listagem de Glicemias Cadastradas</h3>
+
+<div class="form-group p-1">
+    <a class="btn btn-success btn-sm" asp-action="Cadastro">Cadastra Nova Glicemia</a>
+</div>
+<hr />
+<br />
+<table id="tabela" class="table table-striped table-hover fs-6">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GlicemiaMedida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataMedicao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraMedicao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataAplicacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraAplicacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoseRegular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoseAjuste)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="fs-6">
+                <td>
+                    @Html.DisplayFor(modelItem => item.GlicemiaMedida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataMedicao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraMedicao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataAplicacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraAplicacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoseRegular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoseAjuste)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observacao)
+                </td>
+                <td>
+
+                    <div class="btn-group btn-group-sg" role="group" aria-label="Large button group">
+                        <a class="btn btn-secondary" asp-action="Editar" asp-route-id="@item.GlicemiaID">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a class="btn btn-primary" asp-action="Detalhes" asp-route-id="@item.GlicemiaID">
+                            <i class="bi bi-list-columns-reverse"></i>
+                        </a>
+                        <a class="btn btn-danger" asp-action="Deletar" asp-route-id="@item.GlicemiaID">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(
+            function () {
+                $('#tabela').DataTable();
+            }
+        );
+    </script>
+}
+
+        @*$(document).ready(function () {
+        var table = $('#tabela').DataTable( {
+        lengthChange: false,
+        select: true,
+        searchBuilder: true,
+        buttons: ['csv', 'colvis']
+        } );
+
+        table.buttons().container().appendTo('#tabela_wrapper .col-md-6:eq(0)');
+        table.searchBuilder.container().prependTo(table.table().container());
+        } );*@
+
